@@ -69,3 +69,10 @@ def songs():
     results = list(db.songs.find({}))
     print(results[0])
     return {"songs": parse_json(results)}, 200
+
+@app.route("/song/<int:id>", methods=["GET"])
+def get_song_by_id(id):
+    song = db.songs.find_one({"id": id})
+    if not song:
+        return {"message": f"song with id {id} not found"}, 404
+    return parse_json(song), 200
