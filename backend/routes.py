@@ -61,3 +61,11 @@ def count():
     count = db.songs.count_documents({})
 
     return {"count": count}, 200
+
+@app.route("/song", methods=["GET"])
+def songs():
+    # docker run -d --name mongodb-test -e MONGO_INITDB_ROOT_USERNAME=user
+    # -e MONGO_INITDB_ROOT_PASSWORD=password -e MONGO_INITDB_DATABASE=collection mongo
+    results = list(db.songs.find({}))
+    print(results[0])
+    return {"songs": parse_json(results)}, 200
