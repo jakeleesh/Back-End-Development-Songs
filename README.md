@@ -15,14 +15,14 @@ This is the Songs microservice created in Flask for main Capstone application. T
 ## Installation
 
 Use the script to install virtual environment.
-'''bash
+```bash
 cd /Back-End-Development-Songs
 bash ./bin/setup.sh
-'''
+```
 
 ## Usage
-'''bash
+```bash
 MONGODB_SERVICE=localhost MONGODB_USERNAME=root MONGODB_PASSWORD=password flask run --reload --debugger
 
 curl -X GET -i -w '\n' localhost:5000/health
-'''
+```
